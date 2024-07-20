@@ -1,18 +1,23 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { useNavigationItems } from "hooks";
+import { useNavigationItems, useScrollLock } from "hooks";
+import { useSettingsStore } from "store";
 
 import { Button, Container, Text } from "./HomePage.style";
 
 export function HomePage() {
   const navigate = useNavigate();
   const { navigationItems } = useNavigationItems();
+  const { closeNavigationMenu } = useSettingsStore();
+  const { unlockScroll } = useScrollLock();
 
   const handleButtonClick = useCallback(() => {
     const secondRoute = navigationItems[1].route;
     navigate(secondRoute);
-  }, [navigate, navigationItems]);
+    unlockScroll();
+    closeNavigationMenu();
+  }, [navigationItems, closeNavigationMenu, navigate, unlockScroll]);
 
   return (
     <Container.Content>
@@ -26,7 +31,9 @@ export function HomePage() {
           experience!
         </Text.Bottom>
       </Container.Texts>
-      <Button onClick={handleButtonClick}>Explore</Button>
+      <Container.Button>
+        <Button onClick={handleButtonClick}>Explore</Button>
+      </Container.Button>
     </Container.Content>
   );
 }

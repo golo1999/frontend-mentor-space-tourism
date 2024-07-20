@@ -9,16 +9,36 @@ export const Container = {
       display: flex;
       flex: 1;
       gap: 2rem;
+      max-width: 100%;
+      padding-top: 133px;
+
+      @media screen {
+        @media (max-width: 1279px) {
+          flex-direction: column;
+          padding-top: unset;
+        }
+      }
     `,
     Outer: styled.div`
-      bottom: 3rem;
       display: flex;
       flex-direction: column;
+      flex: 1;
       gap: 24px;
-      left: 165px;
-      position: absolute;
-      right: 165px;
-      top: 184px;
+      margin-top: 40px;
+      padding: 48px 181px 165px;
+
+      @media screen {
+        @media (max-width: 1023px) {
+          flex: 1;
+          padding: 40px;
+          position: unset;
+
+          @media (max-width: 767px) {
+            align-items: center;
+            padding: 1.5rem;
+          }
+        }
+      }
     `,
   },
   Destination: {
@@ -29,6 +49,7 @@ export const Container = {
         flex: 1;
         height: 100%;
         justify-content: center;
+        max-width: 100%;
       `,
     },
   },
@@ -38,6 +59,16 @@ export const Container = {
       flex-direction: column;
       gap: 40px;
       width: 445px;
+
+      @media screen {
+        @media (max-width: 1023px) {
+          gap: 24px;
+
+          @media (min-width: 768px) {
+            width: 514px;
+          }
+        }
+      }
     `,
     Statistics: {
       Column: styled.div`
@@ -51,12 +82,25 @@ export const Container = {
         display: flex;
         gap: 24px;
         text-transform: uppercase;
+
+        @media screen {
+          @media (max-width: 767px) {
+            flex-direction: column;
+            text-align: center;
+          }
+        }
       `,
     },
     Texts: styled.div`
       display: flex;
       flex-direction: column;
       gap: 16px;
+
+      @media screen {
+        @media (max-width: 1023px) {
+          text-align: center;
+        }
+      }
     `,
   },
 };
@@ -72,6 +116,16 @@ export const List = {
     list-style-type: none;
     text-transform: uppercase;
     user-select: none;
+
+    @media screen {
+      @media (max-width: 1023px) {
+        justify-content: center;
+
+        @media (min-width: 768px) {
+          margin-top: 2rem;
+        }
+      }
+    }
   `,
 };
 
@@ -97,6 +151,12 @@ export const ListItem = {
         !$isSelected && `border-bottom-color: ${Colors.White05};`};
       ${({ $isSelected }) => !$isSelected && `color: ${Colors.White};`};
     }
+
+    @media screen {
+      @media (max-width: 767px) {
+        font-size: 14px;
+      }
+    }
   `,
 };
 
@@ -111,6 +171,16 @@ export const Photo = {
     background-size: cover;
     border-radius: 50%;
     width: 30rem;
+
+    @media screen {
+      @media (max-width: 1023px) {
+        width: 300px;
+
+        @media (max-width: 767px) {
+          width: 150px;
+        }
+      }
+    }
   `,
 };
 
@@ -128,6 +198,17 @@ export const Text = {
     gap: 24px;
     letter-spacing: 4px;
     text-transform: uppercase;
+
+    @media screen {
+      @media (max-width: 1023px) {
+        font-size: 20px;
+        margin-bottom: 2rem;
+
+        @media (max-width: 767px) {
+          font-size: 1rem;
+        }
+      }
+    }
   `,
   SelectedDestination: {
     Description: styled.p`
@@ -136,6 +217,16 @@ export const Text = {
       font-size: 18px;
       font-weight: 400;
       line-height: 180%;
+
+      @media screen {
+        @media (max-width: 1023px) {
+          font-size: 1rem;
+
+          @media (max-width: 767px) {
+            font-size: 15px;
+          }
+        }
+      }
     `,
     Name: styled.h1`
       color: ${Colors.White};
@@ -143,6 +234,16 @@ export const Text = {
       font-size: 100px;
       font-weight: 400;
       text-transform: uppercase;
+
+      @media screen {
+        @media (max-width: 1023px) {
+          font-size: 80px;
+
+          @media (max-width: 767px) {
+            font-size: 56px;
+          }
+        }
+      }
     `,
     Statistics: {
       Key: styled.p`

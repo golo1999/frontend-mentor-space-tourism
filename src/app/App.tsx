@@ -15,6 +15,8 @@ const Container = {
   Main: styled.div<MainContainerProps>`
     background-image: ${({ $backgroundImageUri }) => $backgroundImageUri};
     background-size: cover;
+    display: flex;
+    flex-direction: column;
     flex: 1;
     position: relative;
   `,

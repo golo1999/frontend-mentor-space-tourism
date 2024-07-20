@@ -1,6 +1,7 @@
 export const Colors = {
   LightBlue: "#D0D6F9",
   VeryDarkNavy: "#0B0D17",
+  VeryDarkNavy015: "rgba(11, 13, 23, 0.15)",
   VeryDarkNavy05: "rgba(11, 13, 23, 0.5)",
   White: "#FFFFFF",
   White004: "rgba(255, 255, 255, 0.04)",

@@ -1,4 +1,3 @@
-import { ReactComponent as Logo } from "./icons/Logo.svg";
 import {
   CrewMemberA,
   CrewMemberB,
@@ -14,6 +13,7 @@ import {
   Titan,
 } from "./icons/destinations";
 import { HomePageBackground } from "./icons/home";
+import { Logo } from "./icons/shared";
 import {
   TechnologyA,
   TechnologyB,
