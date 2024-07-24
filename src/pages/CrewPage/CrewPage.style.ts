@@ -7,16 +7,17 @@ export const Container = {
     Column: {
       End: styled.div`
         align-items: center;
+        aspect-ratio: 1 / 1;
         display: flex;
         flex: 1;
-        height: 100%;
         justify-content: center;
+        width: 100%;
 
         @media screen {
-          @media (max-width: 1023px) {
-            height: unset;
-            width: 100%;
-            aspect-ratio: 1 / 1;
+          @media (min-width: 1280px) {
+            aspect-ratio: unset;
+            height: 100%;
+            width: unset;
           }
         }
       `,
@@ -24,13 +25,16 @@ export const Container = {
         display: flex;
         flex-direction: column;
         flex: 1;
-        gap: 201px;
+        gap: 6.4vw;
         height: 100%;
 
         @media screen {
-          @media (max-width: 1023px) {
-            flex-direction: column;
-            gap: 24px;
+          @media (min-width: 768px) {
+            gap: 3.125vw;
+          }
+
+          @media (min-width: 1280px) {
+            gap: 13.125vw;
           }
         }
       `,
@@ -38,40 +42,51 @@ export const Container = {
     Inner: styled.div`
       align-items: center;
       display: flex;
+      flex-direction: column;
       flex: 1;
-      gap: 2rem;
+      gap: 8.53vw;
       max-width: 100%;
 
       @media screen {
-        @media (max-width: 1279px) {
-          flex-direction: column;
+        @media (min-width: 768px) {
+          align-self: center;
+          gap: 4.16vw;
+          padding-top: 5.2083vw;
+          width: 66.6vw;
+        }
 
-          @media (min-width: 768px) {
-            align-self: center;
-            padding-top: 40px;
-            width: 512px;
-          }
+        @media (min-width: 1280px) {
+          align-self: unset;
+          flex-direction: unset;
+          gap: 2.2vw;
+          padding-top: unset;
+          width: unset;
+        }
+
+        @media (min-width: 1440px) {
+          gap: 2.2vw;
         }
       }
     `,
     Outer: styled.div`
+      align-items: center;
       display: flex;
       flex-direction: column;
       flex: 1;
-      gap: 24px;
-      margin-top: 40px;
-      padding: 48px 165px;
+      gap: 6.4vw;
+      padding: 6.4vw;
 
       @media screen {
-        @media (max-width: 1023px) {
-          flex: 1;
-          padding: 40px 40px 0;
-          position: unset;
+        @media (min-width: 768px) {
+          align-items: unset;
+          gap: 3.125vw;
+          padding: 5.2083vw 5.2083vw 0;
+        }
 
-          @media (max-width: 767px) {
-            align-items: center;
-            padding: 1.5rem;
-          }
+        @media (min-width: 1280px) {
+          gap: 1.66vw;
+          margin-top: 3.125vw;
+          padding: 3.33vw 11.4583vw;
         }
       }
     `,
@@ -80,43 +95,46 @@ export const Container = {
     Inner: styled.div`
       align-items: center;
       display: flex;
-      gap: 40px;
-      height: 15px;
+      gap: 10.66vw;
+      height: 2.6vw;
+      justify-content: center;
 
       @media screen {
-        @media (max-width: 1023px) {
-          height: 10px;
-          justify-content: center;
-          margin-top: 36px;
+        @media (min-width: 768px) {
+          gap: 5.2083vw;
+          height: 1.3vw;
+          margin-top: 4.16vw;
+        }
 
-          @media (max-width: 767px) {
-            height: 10px;
-          }
+        @media (min-width: 1280px) {
+          gap: 3.125vw;
+          height: 1.171875vw;
+          justify-content: unset;
+          margin-top: unset;
         }
       }
     `,
     Outer: styled.div`
       width: 100%;
-
-      @media screen {
-        @media (max-width: 1023px) {
-          padding-bottom: unset;
-          position: unset;
-        }
-      }
     `,
   },
   SelectedCrewMember: {
     Texts: {
       Inner: styled.div`
+        align-items: center;
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 2.13vw;
         text-transform: uppercase;
 
         @media screen {
-          @media (max-width: 1023px) {
-            align-items: center;
+          @media (min-width: 768px) {
+            gap: 2.083vw;
+          }
+
+          @media (min-width: 1280px) {
+            align-items: unset;
+            gap: 1.11vw;
           }
         }
       `,
@@ -124,7 +142,21 @@ export const Container = {
         align-self: center;
         display: flex;
         flex-direction: column;
-        gap: 24px;
+        gap: 6.4vw;
+
+        @media screen {
+          @media (min-width: 768px) {
+            gap: 3.125vw;
+          }
+
+          @media (min-width: 1280px) {
+            gap: 1.875vw;
+          }
+
+          @media (min-width: 1440px) {
+            gap: 1.6vw;
+          }
+        }
       `,
     },
   },
@@ -159,11 +191,12 @@ export const Photo = {
     aspect-ratio: 1 / 1;
     background-image: ${({ $imageUri }) => $imageUri};
     background-size: cover;
+    height: 100%;
     width: 100%;
 
     @media screen {
-      @media (max-width: 1023px) {
-        height: 100%;
+      @media (min-width: 1280px) {
+        height: unset;
       }
     }
   `,
@@ -178,20 +211,30 @@ export const Text = {
     color: ${Colors.White025};
     display: flex;
     font-family: "Barlow Condensed", sans-serif;
-    font-size: 28px;
+    font-size: 4.26vw;
     font-weight: 400;
-    gap: 24px;
-    letter-spacing: 4px;
+    gap: 6.4vw;
+    letter-spacing: 1.06vw;
+    padding-bottom: 10.66vw;
     text-transform: uppercase;
 
     @media screen {
-      @media (max-width: 1023px) {
-        font-size: 20px;
+      @media (min-width: 768px) {
+        font-size: 2.6vw;
+        gap: 3.125vw;
+        letter-spacing: 0.5vw;
+        padding-bottom: unset;
+      }
 
-        @media (max-width: 767px) {
-          font-size: 1rem;
-          padding-bottom: 40px;
-        }
+      @media (min-width: 1280px) {
+        font-size: 1.9375vw;
+        gap: 1.875vw;
+        letter-spacing: 0.3125vw;
+      }
+
+      @media (min-width: 1440px) {
+        gap: 1.6vw;
+        letter-spacing: 0.27vw;
       }
     }
   `,
@@ -199,51 +242,53 @@ export const Text = {
     Description: styled.p`
       color: ${Colors.LightBlue};
       font-family: "Barlow", sans-serif;
-      font-size: 18px;
+      font-size: 4vw;
       font-weight: 400;
       line-height: 180%;
+      padding-bottom: 8.53vw;
+      text-align: center;
 
       @media screen {
-        @media (max-width: 1023px) {
-          font-size: 1rem;
-          text-align: center;
+        @media (min-width: 768px) {
+          font-size: 2.083vw;
+          padding-bottom: unset;
+        }
 
-          @media (max-width: 767px) {
-            font-size: 15px;
-            padding-bottom: 4rem;
-          }
+        @media (min-width: 1280px) {
+          font-size: 1.25vw;
+          text-align: unset;
         }
       }
     `,
     Name: styled.h1`
       color: ${Colors.White};
       font-family: "Bellefair", serif;
-      font-size: 56px;
+      font-size: 6.4vw;
       font-weight: 400;
 
       @media screen {
-        @media (max-width: 1023px) {
-          font-size: 40px;
+        @media (min-width: 768px) {
+          font-size: 5.2083vw;
+        }
 
-          @media (max-width: 767px) {
-            font-size: 1.5rem;
-          }
+        @media (min-width: 1280px) {
+          font-size: 3.8vw;
         }
       }
     `,
     Title: styled.h3`
       color: ${Colors.White05};
       font-family: "Bellefair", serif;
-      font-size: 32px;
+      font-size: 4.8vw;
       font-weight: 400;
 
       @media screen {
-        @media (max-width: 1023px) {
-          font-size: 24px;
+        @media (min-width: 768px) {
+          font-size: 3.125vw;
+        }
 
-          @media (max-width: 767px) {
-            font-size: 18px;
-          }
+        @media (min-width: 1280px) {
+          font-size: 2.2vw;
         }
       }
     `,
