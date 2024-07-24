@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { useNavigationItems, useScrollLock } from "hooks";
+import { useNavigationItems } from "hooks";
 import { useSettingsStore } from "store";
 
 import { Button, Container, Text } from "./HomePage.style";
@@ -10,14 +10,12 @@ export function HomePage() {
   const navigate = useNavigate();
   const { navigationItems } = useNavigationItems();
   const { closeNavigationMenu } = useSettingsStore();
-  const { unlockScroll } = useScrollLock();
 
   const handleButtonClick = useCallback(() => {
     const secondRoute = navigationItems[1].route;
     navigate(secondRoute);
-    unlockScroll();
     closeNavigationMenu();
-  }, [navigationItems, closeNavigationMenu, navigate, unlockScroll]);
+  }, [navigationItems, closeNavigationMenu, navigate]);
 
   return (
     <Container.Content>

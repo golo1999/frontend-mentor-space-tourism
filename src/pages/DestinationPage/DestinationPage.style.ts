@@ -7,36 +7,53 @@ export const Container = {
     Inner: styled.div`
       align-items: center;
       display: flex;
+      flex-direction: column;
       flex: 1;
-      gap: 2rem;
+      gap: 8.53vw;
       max-width: 100%;
-      padding-top: 133px;
 
       @media screen {
-        @media (max-width: 1279px) {
-          flex-direction: column;
-          padding-top: unset;
+        @media (min-width: 768px) {
+          gap: 4.16vw;
+        }
+
+        @media (min-width: 1280px) {
+          flex-direction: unset;
+          gap: 2.5vw;
+          padding-top: 10.4vw;
+        }
+
+        @media (min-width: 1440px) {
+          gap: 2.22vw;
+          padding-top: 9.23vw;
         }
       }
     `,
     Outer: styled.div`
+      align-items: center;
       display: flex;
       flex-direction: column;
       flex: 1;
-      gap: 24px;
-      margin-top: 40px;
-      padding: 48px 181px 165px;
+      gap: 6.4vw;
+      padding: 6.4vw;
 
       @media screen {
-        @media (max-width: 1023px) {
-          flex: 1;
-          padding: 40px;
-          position: unset;
+        @media (min-width: 768px) {
+          align-items: unset;
+          gap: 3.125vw;
+          padding: 5.21vw;
+        }
 
-          @media (max-width: 767px) {
-            align-items: center;
-            padding: 1.5rem;
-          }
+        @media (min-width: 1280px) {
+          gap: 1.875vw;
+          margin-top: 3.125vw;
+          padding: 3.75vw 11.4583vw 12.5694vw;
+        }
+
+        @media (min-width: 1440px) {
+          gap: 1.66vw;
+          margin-top: 2.77vw;
+          padding: 3.33vw 12.57vw 11.46vw;
         }
       }
     `,
@@ -50,6 +67,21 @@ export const Container = {
         height: 100%;
         justify-content: center;
         max-width: 100%;
+
+        &:first-child {
+          @media screen {
+            @media (min-width: 1280px) {
+              padding: 0 2.04861vw;
+            }
+          }
+        }
+        &:last-child {
+          @media screen {
+            @media (min-width: 1280px) {
+              padding: 0 3.2638vw;
+            }
+          }
+        }
       `,
     },
   },
@@ -57,16 +89,21 @@ export const Container = {
     Details: styled.div`
       display: flex;
       flex-direction: column;
-      gap: 40px;
-      width: 445px;
+      gap: 6.4vw;
 
       @media screen {
-        @media (max-width: 1023px) {
-          gap: 24px;
+        @media (min-width: 768px) {
+          gap: 3.125vw;
+          width: 67vw;
+        }
 
-          @media (min-width: 768px) {
-            width: 514px;
-          }
+        @media (min-width: 1280px) {
+          width: 34.76vw;
+        }
+
+        @media (min-width: 1440px) {
+          gap: 2.77vw;
+          width: 31vw;
         }
       }
     `,
@@ -75,18 +112,45 @@ export const Container = {
         display: flex;
         flex-direction: column;
         flex: 1;
-        gap: 12px;
+        gap: 3.2vw;
+
+        @media screen {
+          @media (min-width: 768px) {
+            align-items: center;
+            gap: 1.5625vw;
+          }
+
+          @media (min-width: 1280px) {
+            align-items: unset;
+            gap: 0.9375vw;
+          }
+
+          @media (min-width: 1440px) {
+            gap: 0.83vw;
+          }
+        }
       `,
       Outer: styled.div`
         align-items: center;
         display: flex;
-        gap: 24px;
+        flex-direction: column;
+        gap: 6.4vw;
+        text-align: center;
         text-transform: uppercase;
 
         @media screen {
-          @media (max-width: 767px) {
-            flex-direction: column;
-            text-align: center;
+          @media (min-width: 768px) {
+            flex-direction: unset;
+            gap: 3.125vw;
+            text-align: unset;
+          }
+
+          @media (min-width: 1280px) {
+            gap: 1.875vw;
+          }
+
+          @media (min-width: 1440px) {
+            gap: 1.67vw;
           }
         }
       `,
@@ -94,11 +158,21 @@ export const Container = {
     Texts: styled.div`
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 4.26vw;
+      text-align: center;
 
       @media screen {
-        @media (max-width: 1023px) {
-          text-align: center;
+        @media (min-width: 768px) {
+          gap: 2.083vw;
+        }
+
+        @media (min-width: 1280px) {
+          gap: 1.25vw;
+          text-align: unset;
+        }
+
+        @media (min-width: 1440px) {
+          gap: 1.11vw;
         }
       }
     `,
@@ -110,20 +184,34 @@ export const List = {
     align-items: center;
     color: ${Colors.LightBlue};
     display: flex;
-    font-size: 16px;
-    gap: 2rem;
-    height: 2rem;
+    font-size: 4.26vw;
+    gap: 8.53vw;
+    height: 8.53vw;
+    justify-content: center;
     list-style-type: none;
     text-transform: uppercase;
     user-select: none;
 
     @media screen {
-      @media (max-width: 1023px) {
-        justify-content: center;
+      @media (min-width: 768px) {
+        font-size: 2.083vw;
+        gap: 4.16vw;
+        height: 4.16vw;
+        margin-top: 4.16vw;
+      }
 
-        @media (min-width: 768px) {
-          margin-top: 2rem;
-        }
+      @media (min-width: 1280px) {
+        font-size: 1.25vw;
+        gap: 2.5vw;
+        height: 2.5vw;
+        justify-content: unset;
+        margin-top: unset;
+      }
+
+      @media (min-width: 1440px) {
+        font-size: 1.11vw;
+        gap: 2.22vw;
+        height: 2.22vw;
       }
     }
   `,
@@ -136,14 +224,14 @@ interface DestinationsListItemProps {
 export const ListItem = {
   Destinations: styled.li<DestinationsListItemProps>`
     border-bottom: ${({ $isSelected }) =>
-      `3px solid ${$isSelected ? Colors.White : "transparent"}`};
+      `0.8vw solid ${$isSelected ? Colors.White : "transparent"}`};
     color: ${({ $isSelected }) => ($isSelected ? Colors.White : "inherit")};
     ${({ $isSelected }) => !$isSelected && "cursor: pointer;"};
     font-family: "Barlow Condensed", sans-serif;
-    font-size: 1rem;
+    font-size: 3.73vw;
     font-weight: 400;
     height: 100%;
-    letter-spacing: 2px;
+    letter-spacing: 0.53vw;
     ${({ $isSelected }) => !$isSelected && "transition: 0.3s ease;"};
 
     &:hover {
@@ -153,8 +241,22 @@ export const ListItem = {
     }
 
     @media screen {
-      @media (max-width: 767px) {
-        font-size: 14px;
+      @media (min-width: 768px) {
+        border-bottom-width: 0.4vw;
+        font-size: 2.083vw;
+        letter-spacing: 0.26vw;
+      }
+
+      @media (min-width: 1280px) {
+        border-bottom-width: 0.23vw;
+        font-size: 1.25vw;
+        letter-spacing: 0.15625vw;
+      }
+
+      @media (min-width: 1440px) {
+        border-bottom-width: 0.208vw;
+        font-size: 1.11vw;
+        letter-spacing: 0.14vw;
       }
     }
   `,
@@ -170,15 +272,15 @@ export const Photo = {
     background-image: ${({ $imageUri }) => $imageUri};
     background-size: cover;
     border-radius: 50%;
-    width: 30rem;
+    width: 40vw;
 
     @media screen {
-      @media (max-width: 1023px) {
-        width: 300px;
+      @media (min-width: 768px) {
+        width: 39vw;
+      }
 
-        @media (max-width: 767px) {
-          width: 150px;
-        }
+      @media (min-width: 1280px) {
+        width: 33.3vw;
       }
     }
   `,
@@ -193,20 +295,32 @@ export const Text = {
     color: ${Colors.White025};
     display: flex;
     font-family: "Barlow Condensed", sans-serif;
-    font-size: 28px;
+    font-size: 4.26vw;
     font-weight: 400;
-    gap: 24px;
-    letter-spacing: 4px;
+    gap: 6.4vw;
+    letter-spacing: 1.067vw;
+    margin-bottom: 8.53vw;
     text-transform: uppercase;
 
     @media screen {
-      @media (max-width: 1023px) {
-        font-size: 20px;
-        margin-bottom: 2rem;
+      @media (min-width: 768px) {
+        font-size: 2.6vw;
+        gap: 3.125vw;
+        letter-spacing: 0.52vw;
+        margin-bottom: 4.167vw;
+      }
 
-        @media (max-width: 767px) {
-          font-size: 1rem;
-        }
+      @media (min-width: 1280px) {
+        font-size: 2.1875vw;
+        gap: 1.875vw;
+        letter-spacing: 0.3125vw;
+        margin-bottom: unset;
+      }
+
+      @media (min-width: 1440px) {
+        font-size: 1.94vw;
+        gap: 1.67vw;
+        letter-spacing: 0.278vw;
       }
     }
   `,
@@ -214,34 +328,42 @@ export const Text = {
     Description: styled.p`
       color: ${Colors.LightBlue};
       font-family: "Barlow", sans-serif;
-      font-size: 18px;
+      font-size: 4vw;
       font-weight: 400;
       line-height: 180%;
 
       @media screen {
-        @media (max-width: 1023px) {
-          font-size: 1rem;
+        @media (min-width: 768px) {
+          font-size: 2.083vw;
+        }
 
-          @media (max-width: 767px) {
-            font-size: 15px;
-          }
+        @media (min-width: 1280px) {
+          font-size: 1.4vw;
+        }
+
+        @media (min-width: 1440px) {
+          font-size: 1.25vw;
         }
       }
     `,
     Name: styled.h1`
       color: ${Colors.White};
       font-family: "Bellefair", serif;
-      font-size: 100px;
+      font-size: 14.93vw;
       font-weight: 400;
       text-transform: uppercase;
 
       @media screen {
-        @media (max-width: 1023px) {
-          font-size: 80px;
+        @media (min-width: 768px) {
+          font-size: 10.4167vw;
+        }
 
-          @media (max-width: 767px) {
-            font-size: 56px;
-          }
+        @media (min-width: 1280px) {
+          font-size: 7.8125vw;
+        }
+
+        @media (min-width: 1440px) {
+          font-size: 6.94vw;
         }
       }
     `,
@@ -249,15 +371,42 @@ export const Text = {
       Key: styled.p`
         color: ${Colors.LightBlue};
         font-family: "Barlow Condensed", sans-serif;
-        font-size: 14px;
+        font-size: 3.73vw;
         font-weight: 400;
-        letter-spacing: 2px;
+        letter-spacing: 0.53vw;
+
+        @media screen {
+          @media (min-width: 768px) {
+            font-size: 1.82vw;
+            letter-spacing: 0.26vw;
+          }
+          @media (min-width: 1280px) {
+            font-size: 1.09375vw;
+            letter-spacing: 0.15625vw;
+          }
+          @media (min-width: 1440px) {
+            font-size: 0.972vw;
+            letter-spacing: 0.14vw;
+          }
+        }
       `,
       Value: styled.p`
         color: ${Colors.White};
         font-family: "Bellefair", serif;
-        font-size: 28px;
+        font-size: 7.467vw;
         font-weight: 400;
+
+        @media screen {
+          @media (min-width: 768px) {
+            font-size: 3.64583vw;
+          }
+          @media (min-width: 1280px) {
+            font-size: 2.1875vw;
+          }
+          @media (min-width: 1440px) {
+            font-size: 1.94vw;
+          }
+        }
       `,
     },
   },

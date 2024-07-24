@@ -3,12 +3,7 @@ import { useLocation } from "react-router-dom";
 
 import { Line } from "components";
 import { Colors } from "environment";
-import {
-  useNavigationItems,
-  useOutsideClick,
-  useScreenSize,
-  useScrollLock,
-} from "hooks";
+import { useNavigationItems, useOutsideClick, useScreenSize } from "hooks";
 import { NavigationItem } from "models";
 import { useSettingsStore } from "store";
 
@@ -31,36 +26,29 @@ export function Navigation({
   const { pathname } = useLocation();
   const { navigationItems } = useNavigationItems();
   const { screenWidth } = useScreenSize();
-  const { lockScroll, unlockScroll } = useScrollLock();
   const { isNavigationMenuOpen, closeNavigationMenu, openNavigationMenu } =
     useSettingsStore();
 
   useOutsideClick(
     listRef as MutableRefObject<HTMLUListElement>,
-    handleNavigationMenuClose
+    closeNavigationMenu
   );
-
-  function handleNavigationMenuClose() {
-    unlockScroll();
-    closeNavigationMenu();
-  }
-
-  function handleNavigationMenuOpen() {
-    lockScroll();
-    openNavigationMenu();
-  }
 
   const handleListContainerClick = (event: MouseEvent) =>
     event.stopPropagation();
 
   const isHomeRoute = pathname === navigationItems[0].route;
+  const isStartContainerVisible =
+    !isHomeRoute || screenWidth < 768 || screenWidth >= 1280;
 
   return (
     <Container.Main>
-      <Container.Start>
-        <Icon.Logo $isHomeRoute={isHomeRoute} onClick={onLogoClick} />
-        {screenWidth >= 1280 && <Line />}
-      </Container.Start>
+      {isStartContainerVisible && (
+        <Container.Start>
+          <Icon.Logo $isHomeRoute={isHomeRoute} onClick={onLogoClick} />
+          {screenWidth >= 1280 && <Line />}
+        </Container.Start>
+      )}
       <Container.List
         $isMenuOpen={isNavigationMenuOpen}
         onClick={handleListContainerClick}
@@ -70,20 +58,24 @@ export function Navigation({
             <Container.Icon.Menu.Close>
               <Icon.Menu.Close
                 color={Colors.LightBlue}
-                size={24}
-                onClick={handleNavigationMenuClose}
+                onClick={closeNavigationMenu}
               />
             </Container.Icon.Menu.Close>
           )}
           <Container.ListItems>
-            {items.map((item) => {
+            {items.map((item, index) => {
               const { id, name } = item;
 
               function handleItemClick() {
                 onItemClick(item);
-                handleNavigationMenuClose();
+                closeNavigationMenu();
               }
 
+              const isIdHidden =
+                isHomeRoute &&
+                screenWidth >= 768 &&
+                screenWidth < 1280 &&
+                index === 0;
               const isSelected = id === selectedItem?.id;
 
               return (
@@ -92,7 +84,7 @@ export function Navigation({
                   key={id}
                   onClick={handleItemClick}
                 >
-                  {id}
+                  {!isIdHidden && id}
                   <Text.ListItem.Name>{name}</Text.ListItem.Name>
                 </ListItem>
               );
@@ -105,8 +97,7 @@ export function Navigation({
           <Icon.Menu.Open
             $isMenuOpen={isNavigationMenuOpen}
             color={Colors.LightBlue}
-            size={40}
-            onClick={handleNavigationMenuOpen}
+            onClick={openNavigationMenu}
           />
         </Container.Icon.Menu.Open>
       )}
